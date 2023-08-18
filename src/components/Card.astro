@@ -7,14 +7,13 @@ interface Props {
   image: ImageMetadata;
   imageAlt: string;
   link: string;
-  blur?: boolean;
 }
 
-const { title, description, image, imageAlt, link, blur } = Astro.props;
+const { title, description, image, imageAlt, link } = Astro.props;
 ---
 
 <a
-  class="shadow-lg tracking-tight p-5 text-black rounded-2xl md:w-5/12 md:max-w-sm"
+  class="shadow-lg bg-white tracking-tight p-5 text-black rounded-2xl md:w-5/12 md:max-w-sm"
   href={link}
   target="_blank"
 >
@@ -22,7 +21,7 @@ const { title, description, image, imageAlt, link, blur } = Astro.props;
     <h3 class="text-2xl font-bold">{title}</h3>
     <p class="">{description}</p>
     <img
-      class={`rounded-2xl ${blur ? 'blur-2xl' : ''}`}
+      class="rounded-2xl"
       src={image.src}
       width="100%"
       height={50}

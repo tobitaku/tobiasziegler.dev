@@ -4,16 +4,15 @@ import Card from '../components/Card.astro';
 import ContactButton from '../components/ContactButton.astro';
 import profile from '../assets/images/profile.webp';
 import cssGridLab from '../assets/images/css-grid-lab.webp';
+import movieMood from '../assets/images/movie-mood.webp';
 ---
 
 <Layout
   title="Tobias Ziegler | Softwareentwickler aus Nürnberg"
-  description="Tobias Ziegler ist ein motivierter und lösungsorientierter Softwareentwickler mit mehr als 3 Jahren Erfahrung."
+  description="Tobias Ziegler ist ein lösungsorientierter Softwareentwickler aus Nürnberg mit mehr als 3 Jahren Erfahrung."
   canonical="https://www.tobiasziegler.dev/"
 >
-  <div
-    class="bg-black flex flex-col justify-center align-middle pb-12 md:flex-row"
-  >
+  <div class="bg-black flex flex-col justify-center align-middle md:flex-row">
     <div class="flex justify-center p-12 md:p-24">
       <img
         src={profile.src}
@@ -24,42 +23,37 @@ import cssGridLab from '../assets/images/css-grid-lab.webp';
       />
     </div>
     <div class="flex flex-col justify-center p-8 space-y-8">
-      <h1 class="text-6xl font-extrabold tracking-tight">Hi, ich bin Tobias</h1>
+      <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
       <h2 class="text-xl leading-8 font-normal max-w-md">
         ein <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
           >lösungsorientierter Softwareentwickler & Web-Enthusiast</span
-        > aus Nürnberg.
+        > mit über 3 Jahren Erfahrung aus Nürnberg.
       </h2>
       <ContactButton content="Kontaktieren 👋" />
     </div>
   </div>
-  <div class="bg-white py-12">
+  <div class="bg-black py-12">
     <div class="p-8">
       <div class="flex justify-center">
-        <h2
-          class="font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
-        >
-          Projekte
-        </h2>
+        <h2 class="font-extrabold text-4xl">Projekte</h2>
       </div>
       <div
         class="flex flex-col justify-center flex-wrap space-y-8 mt-14 md:flex-row md:space-x-8 md:space-y-0"
       >
         <Card
-          title="CSS Grid Layout"
-          description="Einfaches, responsives Layout welches mit CSS Grid und Tailwind gebaut wurde. Als Buildtool kam Vite zum Einsatz."
-          image={cssGridLab}
-          imageAlt="Screenshot der CSS Grid Layout Seite"
-          link="https://main--spontaneous-gumption-f6de66.netlify.app/"
+          title="Movie Mood"
+          description="Projekt, das Filmkritiken mit Hilfe von Web Scraping und NLP-Techniken analysiert und anschließend die allgemeine Stimmung der Kritiken ermittelt und die Top 5 positiven und negativen Wörter darstellt."
+          image={movieMood}
+          imageAlt="Screenshot der Movie Mood Seite"
+          link="https://phenomenal-cat-4fe694.netlify.app"
         />
         <Card
-          title="In Arbeit"
-          description="🧑🏼‍💻"
+          title="CSS Grid Layout"
+          description="Einfaches, responsives Layout welches mit CSS Grid und Tailwind gebaut wurde."
           image={cssGridLab}
           imageAlt="Screenshot der CSS Grid Layout Seite"
-          link="#"
-          blur
+          link="https://spontaneous-gumption-f6de66.netlify.app"
         />
       </div>
     </div>
@@ -68,7 +62,6 @@ import cssGridLab from '../assets/images/css-grid-lab.webp';
     class="bg-black py-12 px-8 space-y-8 flex flex-col justify-center items-center md:flex-row md:space-x-32 md:space-y-0"
   >
     <div class="space-y-8">
-      <h3 class="font-extrabold text-4xl text-center">3+ Jahre Erfahrung.</h3>
       <div class="w-fit leading-8 text-xl font-normal">
         <ul class="list-disc list-inside">
           <li>Agile Softwareentwicklung (Full Stack)</li>
