@@ -1,31 +1,20 @@
 ---
-import type { ImageMetadata } from 'astro';
-
 interface Props {
   title: string;
   description: string;
-  image: ImageMetadata;
-  imageAlt: string;
   link: string;
 }
 
-const { title, description, image, imageAlt, link } = Astro.props;
+const { title, description, link } = Astro.props;
 ---
 
 <a
-  class="shadow-lg bg-white tracking-tight p-5 text-black rounded-2xl md:w-5/12 md:max-w-sm"
+  class="border p-5 text-white rounded-2xl md:w-5/12 md:max-w-sm hover:bg-zinc-900"
   href={link}
   target="_blank"
 >
   <div class="flex h-full flex-col justify-between space-y-4">
-    <h3 class="text-2xl font-bold">{title}</h3>
-    <p class="">{description}</p>
-    <img
-      class="rounded-2xl"
-      src={image.src}
-      width="100%"
-      height={50}
-      alt={imageAlt}
-    />
+    <h3 class="text-xl font-bold tracking-tighter">{title}</h3>
+    <p class="text-sm font-light">{description}</p>
   </div>
 </a>

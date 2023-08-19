@@ -13,7 +13,7 @@ import movieMood from '../assets/images/movie-mood.webp';
   canonical="https://www.tobiasziegler.dev/"
 >
   <div class="bg-black flex flex-col justify-center align-middle md:flex-row">
-    <div class="flex justify-center p-12 md:p-24">
+    <div class="flex justify-center min-w-fit p-12 md:p-20">
       <img
         src={profile.src}
         class="rounded-full"
@@ -25,9 +25,9 @@ import movieMood from '../assets/images/movie-mood.webp';
     <div class="flex flex-col justify-center p-8 space-y-8">
       <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
       <h2 class="text-xl leading-8 font-normal max-w-md">
-        ein <span
+        <span
           class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
-          >lösungsorientierter Softwareentwickler & Web-Enthusiast</span
+          >Softwareentwickler & Web-Enthusiast</span
         > mit über 3 Jahren Erfahrung aus Nürnberg.
       </h2>
       <ContactButton content="Kontaktieren 👋" />
@@ -35,25 +35,18 @@ import movieMood from '../assets/images/movie-mood.webp';
   </div>
   <div class="bg-black py-12">
     <div class="p-8">
-      <div class="flex justify-center">
-        <h2 class="font-extrabold text-4xl">Projekte</h2>
-      </div>
       <div
-        class="flex flex-col justify-center flex-wrap space-y-8 mt-14 md:flex-row md:space-x-8 md:space-y-0"
+        class="flex flex-col justify-center flex-wrap space-y-8 md:flex-row md:space-x-8 md:space-y-0"
       >
         <Card
-          title="Movie Mood"
-          description="Projekt, das Filmkritiken mit Hilfe von Web Scraping und NLP-Techniken analysiert und anschließend die allgemeine Stimmung der Kritiken ermittelt und die Top 5 positiven und negativen Wörter darstellt."
-          image={movieMood}
-          imageAlt="Screenshot der Movie Mood Seite"
-          link="https://phenomenal-cat-4fe694.netlify.app"
+          title="Movie Mood →"
+          description="Sentiment-Analyse von Filmreviews, gebaut mit Next.js"
+          link="https://github.com/tobitaku/movie-mood"
         />
         <Card
-          title="CSS Grid Layout"
-          description="Einfaches, responsives Layout welches mit CSS Grid und Tailwind gebaut wurde."
-          image={cssGridLab}
-          imageAlt="Screenshot der CSS Grid Layout Seite"
-          link="https://spontaneous-gumption-f6de66.netlify.app"
+          title="CSS Grid Layout →"
+          description="Responsives Website Layout, gebaut mit Tailwind und Vite"
+          link="https://github.com/tobitaku/css-grid-playground"
         />
       </div>
     </div>
