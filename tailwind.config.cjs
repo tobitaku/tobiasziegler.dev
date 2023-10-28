@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        pattern: "url('/src/assets/images/test2.png')",
+      },
     },
   },
   plugins: [],

@@ -13,7 +13,7 @@ interface Props {
 const { title, description, canonical, noindex } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,9 +31,11 @@ const { title, description, canonical, noindex } = Astro.props;
     {canonical && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
   </head>
-  <body class="font-sans bg-black text-white">
-    <Header />
-    <slot />
-    <Footer />
+  <body class="bg-black font-sans text-white">
+    <div class="bg-pattern bg-contain bg-no-repeat">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
