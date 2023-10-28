@@ -1,36 +1,17 @@
 ---
-interface Route {
-  slug: string;
-  name: string;
-}
+import type { Route } from '../types/Route';
+import NavList from './NavList.astro';
 
 const routes: Route[] = [
   {
-    slug: '/',
+    href: '/',
     name: 'Home',
+    tab: false,
   },
-  { slug: '/blog', name: 'Blog' },
+  { href: '/blog', name: 'Blog', tab: false },
 ];
-const currentRoute = Astro.url.pathname;
 ---
 
 <header class="font-light text-sm text-slate-400">
-  <nav class="space-x-2">
-    {
-      routes.map((route) => (
-        <>
-          <a
-            class:list={[
-              'hover:text-white',
-              { 'text-white': currentRoute === route.slug },
-            ]}
-            href={route.slug}
-          >
-            {route.name}
-          </a>
-          <span class="text-white">/</span>
-        </>
-      ))
-    }
-  </nav>
+  <NavList routes={routes} />
 </header>

@@ -1,25 +1,23 @@
 ---
+import type { Route } from '../types/Route';
+import NavList from './NavList.astro';
 
+const routes: Route[] = [
+  {
+    href: 'https://github.com/tobitaku',
+    name: 'GitHub',
+    tab: true,
+  },
+  {
+    href: 'https://www.linkedin.com/in/tobias-c-ziegler/',
+    name: 'LinkedIn',
+    tab: true,
+  },
+  { href: '/impressum', name: 'Impressum', tab: false },
+  { href: '/datenschutz', name: 'Datenschutz', tab: false },
+];
 ---
 
-<footer class="text-white p-8">
-  <hr class="h-px bg-white" />
-  <div class="mt-8 flex flex-col items-center">
-    <div class="w-full max-w-5xl space-y-8">
-      <span class="text-2xl font-bold">Tobias Ziegler</span>
-      <ul class="space-y-2 underline">
-        <li>
-          <a
-            href="https://www.linkedin.com/in/tobias-c-ziegler/"
-            target="_blank">LinkedIn</a
-          >
-        </li>
-        <li>
-          <a href="https://github.com/tobitaku" target="_blank">GitHub</a>
-        </li>
-        <li><a href="/impressum/">Impressum</a></li>
-        <li><a href="/datenschutz/">Datenschutz</a></li>
-      </ul>
-    </div>
-  </div>
+<footer class="font-light text-sm text-slate-400">
+  <NavList routes={routes} />
 </footer>

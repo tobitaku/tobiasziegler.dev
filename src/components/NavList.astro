@@ -1,0 +1,29 @@
+---
+import type { Route } from '../types/Route';
+interface Props {
+  routes: Route[];
+}
+
+const { routes } = Astro.props;
+const currentRoute = Astro.url.pathname;
+---
+
+<nav class="space-x-2">
+  {
+    routes.map((route) => (
+      <>
+        <a
+          class:list={[
+            'hover:text-white',
+            { 'text-white': currentRoute === route.href },
+          ]}
+          href={route.href}
+          target={route.tab ? '_blank' : '_self'}
+        >
+          {route.name}
+        </a>
+        <span class="text-white">/</span>
+      </>
+    ))
+  }
+</nav>
