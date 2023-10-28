@@ -10,7 +10,7 @@ const { title, technologies, href, tab } = Astro.props;
 ---
 
 <a
-  class="flex space-x-1 text-sm items-center cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white"
+  class="flex space-x-1 text-sm items-center cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
   href={href}
   target={tab ? '_blank' : '_self'}
   ><h3 class="font-semibold mr-4">{title}</h3>{
