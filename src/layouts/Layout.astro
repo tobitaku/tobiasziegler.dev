@@ -2,6 +2,7 @@
 import '@fontsource-variable/inter';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Spotlights from '../components/Spotlights.astro';
 
 interface Props {
   title: string;
@@ -31,11 +32,12 @@ const { title, description, canonical, noindex } = Astro.props;
     {canonical && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
   </head>
-  <body class="bg-black font-sans text-white">
-    <div class="bg-pattern bg-contain bg-no-repeat">
-      <Header />
-      <slot />
-      <Footer />
-    </div>
+  <body
+    class="bg-black font-sans flex flex-col space-y-16 text-white mx-auto min-h-screen max-w-4xl p-10"
+  >
+    <Spotlights />
+    <Header />
+    <slot />
+    <Footer />
   </body>
 </html>

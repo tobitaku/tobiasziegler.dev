@@ -1,9 +1,36 @@
 ---
+interface Route {
+  slug: string;
+  name: string;
+}
 
+const routes: Route[] = [
+  {
+    slug: '/',
+    name: 'Home',
+  },
+  { slug: '/blog', name: 'Blog' },
+];
+const currentRoute = Astro.url.pathname;
 ---
 
-<header class="p-8 flex justify-center">
-  <nav class="text-white text-4xl font-extrabold w-full max-w-5xl">
-    <a href="/">TZ</a>
+<header class="font-light text-sm text-slate-400">
+  <nav class="space-x-2">
+    {
+      routes.map((route) => (
+        <>
+          <a
+            class:list={[
+              'hover:text-white',
+              { 'text-white': currentRoute === route.slug },
+            ]}
+            href={route.slug}
+          >
+            {route.name}
+          </a>
+          <span class="text-white">/</span>
+        </>
+      ))
+    }
   </nav>
 </header>

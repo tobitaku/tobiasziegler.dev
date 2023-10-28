@@ -1,23 +1,25 @@
 ---
 interface Props {
   title: string;
-  description: string;
-  link: string;
-  invisible?: boolean;
+  technologies: string[];
+  href: string;
+  tab: boolean;
 }
 
-const { title, description, link, invisible } = Astro.props;
+const { title, technologies, href, tab } = Astro.props;
 ---
 
 <a
-  class={`${
-    invisible && 'hidden md:block md:invisible'
-  } border p-5 text-white rounded-2xl md:h-32 md:w-5/12 md:max-w-sm hover:bg-zinc-900`}
-  href={link}
-  target="_blank"
->
-  <div class="flex h-full flex-col justify-between space-y-4">
-    <h3 class="text-xl font-bold tracking-tighter">{title}</h3>
-    <p class="text-sm font-light">{description}</p>
-  </div>
+  class="flex space-x-1 text-sm items-center cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white"
+  href={href}
+  target={tab ? '_blank' : '_self'}
+  ><h3 class="font-semibold mr-4">{title}</h3>{
+    technologies.map((technology, idx) => (
+      <>
+        <span class="text-slate-400">{technology}</span>
+        {idx !== technologies.length - 1 && <span>•</span>}
+      </>
+    ))
+  }
+  <span class="ml-4">-></span>
 </a>

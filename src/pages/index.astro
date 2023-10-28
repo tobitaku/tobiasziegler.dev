@@ -1,9 +1,29 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import ContactButton from '../components/ContactButton.astro';
-import profile from '../assets/images/profile.webp';
+
+interface Project {
+  title: string;
+  technologies: string[];
+  href: string;
+  tab: boolean;
+}
+
+const projects: Project[] = [
+  {
+    title: 'Mood Palette',
+    technologies: ['Next.js', 'GPT'],
+    href: 'https://mood-palette.netlify.app/',
+    tab: true,
+  },
+  {
+    title: 'Blog',
+    technologies: ['Astro', 'MDX', 'Tailwind'],
+    href: '/blog',
+    tab: false,
+  },
+];
 ---
 
 <Layout
@@ -11,73 +31,29 @@ import profile from '../assets/images/profile.webp';
   description="Tobias Ziegler ist ein lösungsorientierter Softwareentwickler aus Nürnberg mit mehr als 3 Jahren Erfahrung."
   canonical="https://www.tobiasziegler.dev/"
 >
-  <div class="flex flex-col justify-center align-middle md:flex-row">
-    <div class="flex justify-center min-w-fit p-12 md:p-20">
-      <Image
-        src={profile}
-        class="rounded-full"
-        width={300}
-        height={300}
-        alt="Bild von Tobias Ziegler"
-      />
-    </div>
-    <div class="flex flex-col justify-center p-8 space-y-8">
-      <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
-      <h2 class="text-xl leading-8 font-normal max-w-md">
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
-          >Softwareentwickler & Web-Enthusiast</span
-        > mit über 3 Jahren Erfahrung aus Nürnberg.
-      </h2>
-      <ContactButton content="Kontaktieren 👋" />
-    </div>
+  <div class="flex flex-col justify-center space-y-8">
+    <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
+    <h2 class="text-xl leading-8 font-normal max-w-md">
+      <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
+        >Softwareentwickler & Web-Enthusiast</span
+      > mit über 3 Jahren Erfahrung aus Nürnberg.
+    </h2>
+    <ContactButton content="Kontaktieren 👋" />
   </div>
-  <div class="md:py-12">
-    <div class="p-8 space-y-8">
-      <div
-        class="flex flex-col justify-center flex-wrap space-y-8 md:flex-row md:space-x-8 md:space-y-0"
-      >
+  <div class="flex flex-col space-y-4">
+    <h2 class="font-semibold text-lg mb-4">
+      Ausgewählte Projekte ({projects.length})
+    </h2>
+    {
+      projects.map((project) => (
         <Card
-          title="Mood Palette 🎨 →"
-          description="Stimmungsabhängige Farbgenerierung auf AI-Basis (GPT-3)"
-          link="https://github.com/tobitaku/mood-palette"
+          title={project.title}
+          technologies={project.technologies}
+          href={project.href}
+          tab={project.tab}
         />
-        <Card
-          title="Movie Mood 🎬 →"
-          description="Sentiment-Analyse von Filmreviews mit NLP"
-          link="https://github.com/tobitaku/movie-mood"
-        />
-      </div>
-      <div
-        class="flex flex-col justify-center flex-wrap space-y-8 md:flex-row md:space-x-8 md:space-y-0"
-      >
-        <Card
-          title="CSS Grid Layout #️⃣ →"
-          description="Responsives Website Layout, gebaut mit Tailwind"
-          link="https://github.com/tobitaku/css-grid-playground"
-        />
-        <Card
-          title="placeholder"
-          description="placeholder"
-          link="placeholder"
-          invisible
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="py-12 px-8 space-y-8 flex flex-col justify-center items-center md:flex-row md:space-x-32 md:space-y-0"
-  >
-    <div class="space-y-8">
-      <div class="w-fit leading-8 text-xl font-normal">
-        <ul class="list-disc list-inside">
-          <li>Agile Softwareentwicklung (Full Stack)</li>
-          <li>Web Frameworks</li>
-          <li>Build Tools</li>
-          <li>CI/CD</li>
-        </ul>
-      </div>
-    </div>
-    <div><ContactButton content="Kontaktieren 👋" /></div>
+      ))
+    }
   </div>
 </Layout>
