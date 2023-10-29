@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Tobias Ziegler | Impressum';
 ---
 
-<Layout title="Tobias Ziegler | Impressum" noindex>
+<BaseLayout title={title} noindex>
   <div class="flex justify-center">
     <div class="w-full max-w-5xl">
       <h1 class="text-5xl">Impressum</h1>
@@ -27,4 +28,4 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </div>
   </div>
-</Layout>
+</BaseLayout>

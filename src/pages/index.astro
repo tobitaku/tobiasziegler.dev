@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import ContactButton from '../components/ContactButton.astro';
 import GitHubButton from '../components/GitHubButton.astro';
@@ -20,18 +20,18 @@ const projects: Project[] = [
   },
   {
     title: 'Blog',
-    technologies: ['Astro', 'MDX', 'Tailwind'],
+    technologies: ['Astro', 'Markdown', 'Tailwind'],
     href: '/blog',
     tab: false,
   },
 ];
+const title = 'Tobias Ziegler | Software-Entwickler mit 4 Jahren Web-Erfahrung';
+const description =
+  'Software-Entwickler mit 4 Jahren Web-Erfahrung. Derzeit arbeite ich mit React und TypeScript.';
+const canonical = 'https://www.tobiasziegler.dev/';
 ---
 
-<Layout
-  title="Tobias Ziegler | Software-Entwickler mit 4 Jahren Web-Erfahrung"
-  description="Software-Entwickler mit 4 Jahren Web-Erfahrung. Derzeit arbeite ich mit React und TypeScript."
-  canonical="https://www.tobiasziegler.dev/"
->
+<BaseLayout title={title} description={description} canonical={canonical}>
   <div class="flex flex-col justify-center space-y-8">
     <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
     <h2 class="text-xl leading-8 font-normal max-w-md">
@@ -60,4 +60,4 @@ const projects: Project[] = [
       ))
     }
   </div>
-</Layout>
+</BaseLayout>
