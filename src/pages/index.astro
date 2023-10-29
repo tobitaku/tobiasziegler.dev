@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Card from '../components/Card.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import ContactButton from '../components/ContactButton.astro';
 import GitHubButton from '../components/GitHubButton.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
 
 interface Project {
   title: string;
@@ -25,6 +27,12 @@ const projects: Project[] = [
     tab: false,
   },
 ];
+
+const allPosts = await getCollection('posts');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
 const title = 'Tobias Ziegler | Software-Entwickler mit 4 Jahren Web-Erfahrung';
 const description =
   'Software-Entwickler mit 4 Jahren Web-Erfahrung. Derzeit arbeite ich mit React und TypeScript.';
@@ -46,12 +54,32 @@ const canonical = 'https://www.tobiasziegler.dev/';
     </div>
   </div>
   <div class="flex flex-col space-y-4">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-semibold text-lg">Neueste Posts</h2>
+      <a
+        class="underline decoration-dashed text-slate-400 text-sm hover:text-white"
+        href="/blog">Alle Posts</a
+      >
+    </div>
+    {
+      recentPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          date={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+          href={`/posts/${post.slug}`}
+        />
+      ))
+    }
+  </div>
+  <div class="flex flex-col space-y-4">
     <h2 class="font-semibold text-lg mb-4">
       Ausgewählte Projekte ({projects.length})
     </h2>
     {
       projects.map((project) => (
-        <Card
+        <ProjectCard
           title={project.title}
           technologies={project.technologies}
           href={project.href}
