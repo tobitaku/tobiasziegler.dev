@@ -1,4 +1,6 @@
 ---
+import { getFormattedDate } from '../shared/util';
+
 interface Props {
   title: string;
   date: Date;
@@ -8,14 +10,7 @@ interface Props {
 }
 
 const { title, date, description, tags, href } = Astro.props;
-
-const options: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-};
-const formattedDate = date.toLocaleDateString('de-DE', options);
+const formattedDate = getFormattedDate(date);
 ---
 
 <a
@@ -28,7 +23,7 @@ const formattedDate = date.toLocaleDateString('de-DE', options);
   <div class="flex items-center">
     <h3 class="font-semibold mr-4">{title}</h3>
     <span class="text-slate-400">{formattedDate}</span>
-    <span class="ml-4">-></span>
+    <span class="ml-4">→</span>
   </div>
   <div class="flex items-center">
     <p>{description}</p>
