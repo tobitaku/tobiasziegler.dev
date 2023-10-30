@@ -3,6 +3,7 @@ title: 'View Transitions in Astro 3 🚀'
 pubDate: 2023-10-30
 description: 'Astro 3 ist da und bietet neue Funktionen und Verbesserungen, eine davon sind View Transitions.'
 author: 'Tobias Ziegler'
+timeToRead: '2-3 Minuten'
 tags: ["astro", "transitions"]
 ---
 
