@@ -8,7 +8,7 @@ const { routes } = Astro.props;
 const currentRoute = Astro.url.pathname;
 ---
 
-<nav class="space-x-2">
+<nav class="flex items-center flex-wrap space-x-2">
   {
     routes.map((route) => (
       <>
