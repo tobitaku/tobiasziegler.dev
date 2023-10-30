@@ -1,8 +1,16 @@
 ---
+import type { Route } from '../types/Route';
+import NavList from './NavList.astro';
+const routes: Route[] = [
+  {
+    href: '/',
+    name: 'Home',
+    tab: false,
+  },
+  { href: '/blog', name: 'Blog', tab: false },
+];
 ---
 
-<header class="bg-black p-8 flex justify-center">
-  <nav class="text-white text-4xl font-extrabold w-full max-w-5xl">
-    <a href="/">TZ</a>
-  </nav>
+<header class="font-light text-sm text-slate-400">
+  <NavList routes={routes} />
 </header>

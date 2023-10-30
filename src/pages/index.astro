@@ -1,82 +1,91 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import ContactButton from '../components/ContactButton.astro';
-import profile from '../assets/images/profile.webp';
+import GitHubButton from '../components/GitHubButton.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+interface Project {
+  title: string;
+  technologies: string[];
+  href: string;
+  tab: boolean;
+}
+
+const projects: Project[] = [
+  {
+    title: 'Mood Palette',
+    technologies: ['Next.js', 'GPT'],
+    href: 'https://mood-palette.netlify.app/',
+    tab: true,
+  },
+  {
+    title: 'Blog',
+    technologies: ['Astro', 'Markdown', 'Tailwind'],
+    href: '/blog',
+    tab: false,
+  },
+];
+
+const allPosts = await getCollection('posts');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const title = 'Tobias Ziegler | Software-Entwickler mit 4 Jahren Web-Erfahrung';
+const description =
+  'Software-Entwickler mit 4 Jahren Web-Erfahrung. Derzeit arbeite ich mit React und TypeScript.';
+const canonical = 'https://www.tobiasziegler.dev/';
 ---
 
-<Layout
-  title="Tobias Ziegler | Softwareentwickler aus Nürnberg"
-  description="Tobias Ziegler ist ein lösungsorientierter Softwareentwickler aus Nürnberg mit mehr als 3 Jahren Erfahrung."
-  canonical="https://www.tobiasziegler.dev/"
->
-  <div class="bg-black flex flex-col justify-center align-middle md:flex-row">
-    <div class="flex justify-center min-w-fit p-12 md:p-20">
-      <img
-        src={profile.src}
-        class="rounded-full"
-        width={300}
-        height={300}
-        alt="Bild von Tobias Ziegler"
-      />
-    </div>
-    <div class="flex flex-col justify-center p-8 space-y-8">
-      <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
-      <h2 class="text-xl leading-8 font-normal max-w-md">
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
-          >Softwareentwickler & Web-Enthusiast</span
-        > mit über 3 Jahren Erfahrung aus Nürnberg.
-      </h2>
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="flex flex-col justify-center space-y-8">
+    <h1 class="text-6xl font-extrabold tracking-tight">Tobias Ziegler</h1>
+    <h2 class="text-xl leading-8 font-normal max-w-md">
+      <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-pink-400"
+        >Software-Entwickler mit 4 Jahren Web-Erfahrung.</span
+      > Derzeit arbeite ich mit React und TypeScript.
+    </h2>
+    <div class="flex space-x-4">
       <ContactButton content="Kontaktieren 👋" />
+      <GitHubButton content="GitHub 👨🏼‍💻" />
     </div>
   </div>
-  <div class="bg-black md:py-12">
-    <div class="p-8 space-y-8">
-      <div
-        class="flex flex-col justify-center flex-wrap space-y-8 md:flex-row md:space-x-8 md:space-y-0"
+  <div class="flex flex-col space-y-4">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-semibold text-lg">Neueste Posts</h2>
+      <a
+        class="underline decoration-dashed text-slate-400 text-sm hover:text-white"
+        href="/blog">Alle Posts</a
       >
-        <Card
-          title="Mood Palette 🎨 →"
-          description="Stimmungsabhängige Farbgenerierung auf AI-Basis (GPT-3)"
-          link="https://github.com/tobitaku/mood-palette"
-        />
-        <Card
-          title="Movie Mood 🎬 →"
-          description="Sentiment-Analyse von Filmreviews mit NLP"
-          link="https://github.com/tobitaku/movie-mood"
-        />
-      </div>
-      <div
-        class="flex flex-col justify-center flex-wrap space-y-8 md:flex-row md:space-x-8 md:space-y-0"
-      >
-        <Card
-          title="CSS Grid Layout #️⃣ →"
-          description="Responsives Website Layout, gebaut mit Tailwind"
-          link="https://github.com/tobitaku/css-grid-playground"
-        />
-        <Card
-          title="placeholder"
-          description="placeholder"
-          link="placeholder"
-          invisible
-        />
-      </div>
     </div>
+    {
+      recentPosts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          date={post.data.pubDate}
+          description={post.data.description}
+          tags={post.data.tags}
+          href={`/posts/${post.slug}`}
+        />
+      ))
+    }
   </div>
-  <div
-    class="bg-black py-12 px-8 space-y-8 flex flex-col justify-center items-center md:flex-row md:space-x-32 md:space-y-0"
-  >
-    <div class="space-y-8">
-      <div class="w-fit leading-8 text-xl font-normal">
-        <ul class="list-disc list-inside">
-          <li>Agile Softwareentwicklung (Full Stack)</li>
-          <li>Web Frameworks</li>
-          <li>Build Tools</li>
-          <li>CI/CD</li>
-        </ul>
-      </div>
-    </div>
-    <div><ContactButton content="Kontaktieren 👋" /></div>
+  <div class="flex flex-col space-y-4">
+    <h2 class="font-semibold text-lg mb-4">
+      Ausgewählte Projekte ({projects.length})
+    </h2>
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          technologies={project.technologies}
+          href={project.href}
+          tab={project.tab}
+        />
+      ))
+    }
   </div>
-</Layout>
+</BaseLayout>

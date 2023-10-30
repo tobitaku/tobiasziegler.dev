@@ -1,0 +1,25 @@
+---
+import { getFormattedDate } from '../shared/util';
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+const formattedDate = getFormattedDate(frontmatter.pubDate);
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="space-y-4">
+    <div class="text-sm">
+      <p class="font-semibold">{frontmatter.author}</p>
+      <div class="flex items-center space-x-2">
+        <p class="text-slate-400">Gepostet am {formattedDate}</p><span>/</span
+        ><p class="text-slate-400">
+          {frontmatter.timeToRead} Lesezeit
+        </p>
+      </div>
+    </div>
+    <h1 class="text-6xl font-extrabold">{frontmatter.title}</h1>
+    <div class="flex items-center space-x-1 text-slate-400">
+      {frontmatter.tags.map((tag) => <span>#{tag}</span>)}
+    </div>
+    <slot />
+  </div>
+</BaseLayout>

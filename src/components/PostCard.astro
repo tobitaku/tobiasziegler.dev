@@ -1,0 +1,31 @@
+---
+import { getFormattedDate } from '../shared/util';
+
+interface Props {
+  title: string;
+  date: Date;
+  description: string;
+  tags: string[];
+  href: string;
+}
+
+const { title, date, description, tags, href } = Astro.props;
+const formattedDate = getFormattedDate(date);
+---
+
+<a
+  class="flex flex-col space-y-2 text-sm cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
+  href={href}
+>
+  <div class="flex items-center space-x-1 text-slate-400">
+    {tags.map((tag) => <span>#{tag}</span>)}
+  </div>
+  <div class="flex items-center">
+    <h3 class="font-semibold mr-4">{title}</h3>
+    <span class="text-slate-400">{formattedDate}</span>
+    <span class="ml-4">→</span>
+  </div>
+  <div class="flex items-center">
+    <p>{description}</p>
+  </div>
+</a>
