@@ -4,10 +4,13 @@ pubDate: 2023-10-30
 description: 'Astro 3 ist da und bietet neue Funktionen und Verbesserungen, eine davon sind View Transitions.'
 author: 'Tobias Ziegler'
 timeToRead: '2-3 Minuten'
-tags: ["astro", "transitions"]
+tags: ['astro', 'transitions']
+bannerImage:
+  src: '../../../src/assets/astro-banner.webp'
+  alt: 'Astro Banner'
 ---
 
->In der Welt des Webdesigns und der Webentwicklung ist es wichtig, auf dem neuesten Stand zu sein. Astro 3.0 und sein neues Feature - `<ViewTransitions />` - sind eine aufregende Entwicklung in diesem Bereich. In diesem Artikel betrachten wir diese Neuerung genauer, die die Erfahrung des Website-Navigierens verändert.
+> In der Welt des Webdesigns und der Webentwicklung ist es wichtig, auf dem neuesten Stand zu sein. Astro 3.0 und sein neues Feature - `<ViewTransitions />` - sind eine aufregende Entwicklung in diesem Bereich. In diesem Artikel betrachten wir diese Neuerung genauer, die die Erfahrung des Website-Navigierens verändert.
 
 ## Was ist Astro 3.0?
 
@@ -15,11 +18,11 @@ Bevor wir über `<ViewTransitions />` sprechen, schauen wir uns kurz Astro 3.0 a
 
 ## Das Aufregende an `<ViewTransitions />`
 
-`<ViewTransitions />` ist das neueste Feature von Astro 3.0, das die Navigation auf Websites auf die nächste Stufe bringt. Es ermöglicht seitenweise Ansichtsübergänge mit nur wenigen Zeilen Code, wodurch Seiteninhalte aktualisiert werden können, ohne den klassischen Full-Page-Reload zu benötigen.  Das Ergebnis sind nahtlose Animationen zwischen den Seiten, die die Benutzererfahrung erheblich verbessern.
+`<ViewTransitions />` ist das neueste Feature von Astro 3.0, das die Navigation auf Websites auf die nächste Stufe bringt. Es ermöglicht seitenweise Ansichtsübergänge mit nur wenigen Zeilen Code, wodurch Seiteninhalte aktualisiert werden können, ohne den klassischen Full-Page-Reload zu benötigen. Das Ergebnis sind nahtlose Animationen zwischen den Seiten, die die Benutzererfahrung erheblich verbessern.
 
 ## Eigenschaften von `<ViewTransitions />`
 
-`<ViewTransitions />` in Astro 3.0 bietet eine Vielzahl von Optionen zur einfacheren Gestaltung und Steuerung von Seitenübergängen. Einige dieser Funktionen sind:
+Das `<ViewTransitions />` Feature in Astro 3.0 bietet eine Vielzahl von Optionen zur einfacheren Gestaltung und Steuerung von Seitenübergängen. Einige dieser Funktionen sind:
 
 - Eingebaute Animationsoptionen wie `fade`, `slide` und `none`.
 - Unterstützung von Vorwärts- und Rückwärtsnavigations-Animationen.
@@ -48,10 +51,13 @@ import { ViewTransitions } from 'astro:transitions';
 ```
 
 ## `<ViewTransitions />` und Barrierefreiheit
+
 ### Route Announcer
+
 Bei der Einführung neuer Webtechnologien liegt ein wichtiger Fokus auf der Barrierefreiheit. `<ViewTransitions />` in Astro enthalten einen Route-Announcer, der out-of-the-box für das clientseitige Routing funktioniert. Unterstützende Technologien informieren den Nutzer einer Webseite durch eine Änderung des Seitentitels darüber, dass eine neue Seite aufgerufen wurde.
 
 ### prefers-reduced-motion
+
 Astro's `<ViewTransitions />` enthalten eine Media Query, die die Einstellung `prefers-reduced-motion` überprüft und dementsprechend alle Übergänge deaktiviert.
 
 ## Fazit

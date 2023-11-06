@@ -18,7 +18,14 @@ const formattedDate = getFormattedDate(date);
   href={href}
 >
   <div class="flex items-center space-x-1 text-slate-400">
-    {tags.map((tag) => <span>#{tag}</span>)}
+    {
+      tags.map((tag) => (
+        <>
+          <span class="text-violet-500">#</span>
+          <span>{tag}</span>
+        </>
+      ))
+    }
   </div>
   <div class="flex items-center">
     <h3 class="font-semibold mr-4">{title}</h3>
