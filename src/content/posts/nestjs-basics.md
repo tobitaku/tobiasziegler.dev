@@ -6,7 +6,7 @@ author: 'Tobias Ziegler'
 timeToRead: '2-3 Minuten'
 tags: ['nestjs', 'rest', 'api']
 bannerImage:
-  src: '../../../src/assets/nest-banner.webp'
+  src: '/blog/nest-banner.webp'
   alt: 'NestJS Banner'
 ---
 

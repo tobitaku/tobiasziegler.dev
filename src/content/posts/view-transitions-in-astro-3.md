@@ -6,7 +6,7 @@ author: 'Tobias Ziegler'
 timeToRead: '2-3 Minuten'
 tags: ['astro', 'transitions']
 bannerImage:
-  src: '../../../src/assets/astro-banner.webp'
+  src: '/blog/astro-banner.webp'
   alt: 'Astro Banner'
 ---
 

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getFormattedDate } from '../shared/util';
 import BaseLayout from './BaseLayout.astro';
 const { frontmatter } = Astro.props;
@@ -6,10 +7,12 @@ const formattedDate = getFormattedDate(frontmatter.pubDate);
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <img
-    class="rounded-lg w-full h-[300px] object-cover"
+  <Image
+    class="rounded-lg max-h-[300px] object-cover"
     src={frontmatter.bannerImage.src}
     alt={frontmatter.bannerImage.alt}
+    width={1000}
+    height={300}
   />
   <div class="space-y-4">
     <div class="text-sm">
