@@ -1,7 +1,6 @@
 ---
 title: 'NestJS Basics - Eine Einführung in das moderne Node.js-Framework 🐈'
 pubDate: 2023-11-06
-description: 'Eine Einführung in NestJS: Grundlagen und Code-Beispiele für Node.js-Entwickler.'
 author: 'Tobias Ziegler'
 timeToRead: '2-3 Minuten'
 tags: ['nestjs', 'rest', 'api']

@@ -2,7 +2,8 @@
 import { Image } from 'astro:assets';
 import { getFormattedDate } from '../shared/util';
 import BaseLayout from './BaseLayout.astro';
-import iconImage from '../assets/icon.webp';
+import PostInfo from '../components/PostInfo.astro';
+import TagList from '../components/TagList.astro';
 const { frontmatter } = Astro.props;
 const formattedDate = getFormattedDate(frontmatter.pubDate);
 ---
@@ -16,36 +17,9 @@ const formattedDate = getFormattedDate(frontmatter.pubDate);
     height={300}
   />
   <div class="space-y-4">
-    <div class="flex flex-row space-x-4 items-center">
-      <img
-        class="rounded-full"
-        width="32"
-        height="32"
-        src={iconImage.src}
-        alt="Tobias Ziegler Icon"
-      />
-      <div class="text-sm">
-        <p class="font-semibold">{frontmatter.author}</p>
-        <div class="flex items-center space-x-2">
-          <p class="text-slate-400">{formattedDate}</p><span>/</span><p
-            class="text-slate-400"
-          >
-            {frontmatter.timeToRead} ⏳
-          </p>
-        </div>
-      </div>
-    </div>
+    <PostInfo author={frontmatter.author} formattedDate={formattedDate} />
     <h1 class="text-6xl font-extrabold">{frontmatter.title}</h1>
-    <div class="flex items-center space-x-1 text-slate-400">
-      {
-        frontmatter.tags.map((tag) => (
-          <>
-            <span class="text-violet-500">#</span>
-            <span>{tag}</span>
-          </>
-        ))
-      }
-    </div>
+    <TagList tags={frontmatter.tags} />
     <slot />
   </div>
 </BaseLayout>

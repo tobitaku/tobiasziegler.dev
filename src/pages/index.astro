@@ -76,11 +76,12 @@ const canonical = 'https://www.tobiasziegler.dev/';
     {
       recentPosts.map((post) => (
         <PostCard
+          author={post.data.author}
           title={post.data.title}
           date={post.data.pubDate}
-          description={post.data.description}
           tags={post.data.tags}
           href={`/posts/${post.slug}`}
+          timeToRead={post.data.timeToRead}
         />
       ))
     }

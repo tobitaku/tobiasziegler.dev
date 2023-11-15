@@ -1,38 +1,29 @@
 ---
 import { getFormattedDate } from '../shared/util';
+import PostInfo from './PostInfo.astro';
+import TagList from './TagList.astro';
 
 interface Props {
+  author: string;
   title: string;
   date: Date;
-  description: string;
   tags: string[];
   href: string;
+  timeToRead: string;
 }
 
-const { title, date, description, tags, href } = Astro.props;
+const { author, title, date, tags, href, timeToRead } = Astro.props;
 const formattedDate = getFormattedDate(date);
 ---
 
 <a
-  class="flex flex-col space-y-2 text-sm cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
+  class="flex flex-col space-y-4 text-sm cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
   href={href}
 >
-  <div class="flex items-center space-x-1 text-slate-400">
-    {
-      tags.map((tag) => (
-        <>
-          <span class="text-violet-500">#</span>
-          <span>{tag}</span>
-        </>
-      ))
-    }
-  </div>
-  <div class="flex items-center">
-    <h3 class="font-semibold mr-4">{title}</h3>
-    <span class="text-slate-400">{formattedDate}</span>
-    <span class="ml-4">→</span>
-  </div>
-  <div class="flex items-center">
-    <p>{description}</p>
+  <PostInfo author={author} formattedDate={formattedDate} />
+  <h3 class="font-semibold text-2xl tracking-wide">{title}</h3>
+  <div class="flex justify-between">
+    <TagList tags={tags} />
+    <span class="text-sm text-slate-400">{timeToRead} ⏳</span>
   </div>
 </a>
