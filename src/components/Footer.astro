@@ -23,6 +23,19 @@ const routes: Route[] = [
 ];
 ---
 
-<footer class="font-light text-sm text-slate-400">
-  <NavList routes={routes} />
+<footer class="font-light text-sm text-white">
+  <hr class="mb-4" />
+  <nav class="flex flex-col flex-wrap space-y-2">
+    {
+      routes.map((route) => (
+        <a
+          class="underline w-fit"
+          href={route.href}
+          target={route.tab ? '_blank' : '_self'}
+        >
+          {route.name}
+        </a>
+      ))
+    }
+  </nav>
 </footer>
