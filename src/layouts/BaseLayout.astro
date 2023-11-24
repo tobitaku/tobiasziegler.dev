@@ -28,6 +28,7 @@ const { title, description, canonical, noindex } = Astro.props;
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#18181b" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {canonical && <link rel="canonical" href={canonical} />}
@@ -35,7 +36,7 @@ const { title, description, canonical, noindex } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-black font-sans flex flex-col space-y-16 text-white mx-auto min-h-screen max-w-4xl p-10"
+    class="bg-zinc-900 font-sans flex flex-col space-y-16 text-white mx-auto min-h-screen max-w-4xl p-10"
   >
     <Spotlights />
     <Header />

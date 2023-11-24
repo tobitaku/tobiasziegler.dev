@@ -11,19 +11,19 @@ const currentRoute = Astro.url.pathname;
 <nav class="flex items-center flex-wrap space-x-2">
   {
     routes.map((route) => (
-      <>
-        <a
-          class:list={[
-            'hover:text-white',
-            { 'text-white': currentRoute === route.href },
-          ]}
-          href={route.href}
-          target={route.tab ? '_blank' : '_self'}
-        >
-          {route.name}
-        </a>
-        <span class="text-white">/</span>
-      </>
+      <a
+        class:list={[
+          'hover:text-white',
+          {
+            'text-white underline underline-offset-8 decoration-zinc-400':
+              currentRoute === route.href,
+          },
+        ]}
+        href={route.href}
+        target={route.tab ? '_blank' : '_self'}
+      >
+        {route.name}
+      </a>
     ))
   }
 </nav>

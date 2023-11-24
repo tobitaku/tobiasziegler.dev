@@ -6,6 +6,7 @@ import GitHubButton from '../components/GitHubButton.astro';
 import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
 import profileImage from '../assets/profile.webp';
+import { Image } from 'astro:assets';
 
 interface Project {
   title: string;
@@ -56,11 +57,11 @@ const canonical = 'https://www.tobiasziegler.dev/';
       </div>
     </div>
     <div class="pt-16 md:p-16">
-      <img
+      <Image
         class="rounded-lg max-h-[600px] md:max-h-[700px] object-cover"
         width="450"
         height="700"
-        src={profileImage.src}
+        src={profileImage}
         alt="Tobias Ziegler Profilbild"
       />
     </div>
@@ -69,7 +70,7 @@ const canonical = 'https://www.tobiasziegler.dev/';
     <div class="flex justify-between items-center mb-4">
       <h2 class="font-semibold text-lg">Neueste Posts</h2>
       <a
-        class="underline decoration-dashed text-slate-400 text-sm hover:text-white"
+        class="underline decoration-dashed text-zinc-400 text-sm hover:text-white"
         href="/blog">Alle Posts</a
       >
     </div>
@@ -79,9 +80,7 @@ const canonical = 'https://www.tobiasziegler.dev/';
           author={post.data.author}
           title={post.data.title}
           date={post.data.pubDate}
-          tags={post.data.tags}
           href={`/posts/${post.slug}`}
-          timeToRead={post.data.timeToRead}
         />
       ))
     }

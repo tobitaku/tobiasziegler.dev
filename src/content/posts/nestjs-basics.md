@@ -1,9 +1,7 @@
 ---
-title: 'NestJS Basics - Eine Einführung in das moderne Node.js-Framework 🐈'
+title: 'NestJS Basics - Eine Einführung in das Framework 🐈'
 pubDate: 2023-11-06
 author: 'Tobias Ziegler'
-timeToRead: '2-3 Minuten'
-tags: ['nestjs', 'rest', 'api']
 bannerImage:
   src: '/blog/nest-banner.webp'
   alt: 'NestJS Banner'

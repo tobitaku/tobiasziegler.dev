@@ -3,23 +3,23 @@ import { Image } from 'astro:assets';
 import { getFormattedDate } from '../shared/util';
 import BaseLayout from './BaseLayout.astro';
 import PostInfo from '../components/PostInfo.astro';
-import TagList from '../components/TagList.astro';
 const { frontmatter } = Astro.props;
 const formattedDate = getFormattedDate(frontmatter.pubDate);
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <Image
-    class="rounded-lg max-h-[300px] object-cover"
-    src={frontmatter.bannerImage.src}
-    alt={frontmatter.bannerImage.alt}
-    width={1000}
-    height={300}
-  />
-  <div class="space-y-4">
+  <div class="space-y-8">
     <PostInfo author={frontmatter.author} formattedDate={formattedDate} />
-    <h1 class="text-6xl font-extrabold">{frontmatter.title}</h1>
-    <TagList tags={frontmatter.tags} />
+    <div class="space-y-2">
+      <h1 class="text-2xl font-extrabold">{frontmatter.title}</h1>
+      <Image
+        class="rounded-lg max-h-[300px] object-cover"
+        src={frontmatter.bannerImage.src}
+        alt={frontmatter.bannerImage.alt}
+        width={1000}
+        height={300}
+      />
+    </div>
     <slot />
   </div>
 </BaseLayout>

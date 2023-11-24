@@ -1,6 +1,5 @@
 ---
 import type { Route } from '../types/Route';
-import NavList from './NavList.astro';
 
 const routes: Route[] = [
   {
@@ -24,18 +23,20 @@ const routes: Route[] = [
 ---
 
 <footer class="font-light text-sm text-white">
-  <hr class="mb-4" />
-  <nav class="flex flex-col flex-wrap space-y-2">
+  <hr class="mb-4 border-zinc-400" />
+  <nav class="flex text-zinc-400 flex-col flex-wrap space-y-3">
     {
       routes.map((route) => (
         <a
-          class="underline w-fit"
+          class="w-fit hover:text-white"
           href={route.href}
           target={route.tab ? '_blank' : '_self'}
         >
           {route.name}
+          <span class="text-white">→</span>
         </a>
       ))
     }
   </nav>
+  <p class="mt-8 text-xs">© Tobias Ziegler</p>
 </footer>

@@ -2,8 +2,6 @@
 title: 'View Transitions in Astro 3 🚀'
 pubDate: 2023-10-30
 author: 'Tobias Ziegler'
-timeToRead: '2-3 Minuten'
-tags: ['astro', 'transitions']
 bannerImage:
   src: '/blog/astro-banner.webp'
   alt: 'Astro Banner'

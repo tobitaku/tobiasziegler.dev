@@ -6,8 +6,6 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     author: z.string(),
-    timeToRead: z.string(),
-    tags: z.array(z.string()),
     bannerImage: z.object({
       src: z.string(),
       alt: z.string(),

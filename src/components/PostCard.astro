@@ -1,29 +1,24 @@
 ---
 import { getFormattedDate } from '../shared/util';
-import PostInfo from './PostInfo.astro';
-import TagList from './TagList.astro';
 
 interface Props {
   author: string;
   title: string;
   date: Date;
-  tags: string[];
   href: string;
-  timeToRead: string;
 }
 
-const { author, title, date, tags, href, timeToRead } = Astro.props;
+const { title, date, href } = Astro.props;
 const formattedDate = getFormattedDate(date);
 ---
 
 <a
-  class="flex flex-col space-y-4 text-sm cursor-pointer rounded-lg border border-slate-400 p-4 hover:border-white transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
+  class="bg-zinc-800 flex flex-col space-y-2 text-sm cursor-pointer rounded-lg p-4 transition ease-in-out delay-150 hover:-translate-y-1 duration-300 motion-reduce:transition-none"
   href={href}
 >
-  <PostInfo author={author} formattedDate={formattedDate} />
-  <h3 class="font-semibold text-2xl tracking-wide">{title}</h3>
-  <div class="flex justify-between">
-    <TagList tags={tags} />
-    <span class="text-sm text-slate-400 hidden md:inline">{timeToRead} ⏳</span>
-  </div>
+  <h3 class="font-semibold tracking-wide">{title}</h3>
+  <p class="text-sm text-zinc-400">
+    {formattedDate}
+    <span class="text-white">→</span>
+  </p>
 </a>
