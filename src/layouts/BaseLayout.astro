@@ -2,7 +2,6 @@
 import '@fontsource-variable/inter';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Spotlights from '../components/Spotlights.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -34,9 +33,8 @@ const { title, description, canonical, noindex } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="bg-zinc-900 font-sans flex flex-col space-y-16 text-white mx-auto min-h-screen max-w-4xl p-10"
+    class="bg-zinc-950 font-sans flex flex-col space-y-16 text-white mx-auto min-h-screen max-w-4xl p-10"
   >
-    <Spotlights />
     <Header />
     <slot />
     <Footer />
