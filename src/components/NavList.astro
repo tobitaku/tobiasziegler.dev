@@ -11,15 +11,14 @@ const currentRoute =
     : Astro.url.pathname;
 ---
 
-<nav class="flex items-center flex-wrap space-x-2">
+<nav class="flex items-center flex-wrap space-x-4">
   {
     routes.map((route) => (
       <a
         class:list={[
           'hover:text-white',
           {
-            'text-white underline underline-offset-8 decoration-zinc-400':
-              currentRoute === route.href,
+            'text-white': currentRoute === route.href,
           },
         ]}
         href={route.href}
